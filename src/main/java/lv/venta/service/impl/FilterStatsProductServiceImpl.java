@@ -2,8 +2,9 @@ package lv.venta.service.impl;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Locale.Category;
 
+
+import lv.venta.model.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -85,7 +86,7 @@ public class FilterStatsProductServiceImpl implements IProductFilterAndStatsServ
             throw new Exception("DB nav produktu, tāpēc neko nevar aprēķināt");
         }
         float avg_price = prodRepo.count_average_database();
-        
+
         return avg_price;
     }
 

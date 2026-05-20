@@ -1,8 +1,8 @@
 package lv.venta.service;
 
 import java.util.ArrayList;
-import java.util.Locale.Category;
 
+import lv.venta.model.Category;
 import lv.venta.model.Product;
 
 public interface IProductFilterAndStatsService {

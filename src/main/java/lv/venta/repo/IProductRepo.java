@@ -1,8 +1,8 @@
 package lv.venta.repo;
 
 import java.util.ArrayList;
-import java.util.Locale.Category;
 
+import lv.venta.model.Category;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
