@@ -1,6 +1,7 @@
 package lv.venta.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 @Table(name = "ProductTable")
 @Entity
@@ -10,20 +11,30 @@ public class Product {
 	@Id //šī kolonna būs kā PK
 	@GeneratedValue(strategy = GenerationType.AUTO)//auto increment datubāzē izveidos nunmuru pec kartas un unikalu id
 	private int id;
-	
+
+	@Min(0)
+	@Max(100000)
 	@Column(name = "Price")
 	private float price;
-	
+
+	@NotNull
+	@NotEmpty
+	@Pattern(regexp = "[A-Za-z]{2,20}", message = "This can only contain letters...")
 	@Column(name = "Title", unique = true)
 	private String title;
 	
 	@Column(name = "Category")
 	@Enumerated(EnumType.STRING)
+	@NotNull
 	private Category category;
 	
 	@Column(name = "Description")
+	@NotEmpty
+	@NotNull
 	private String description;
-	
+
+	@Min(0)
+	@Max(10000)
 	@Column(name = "Quantity")
 	private int quantity;
 	
@@ -41,8 +52,7 @@ public class Product {
 	public String getTitle() {
 		return title;
 	}
-	
-	//TODO Izmantot validāciju anotācijas
+
 	public void setTitle(String title) {
 		this.title = title;
 	}

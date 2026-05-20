@@ -2,13 +2,16 @@ package lv.venta.controller;
 
 import java.util.ArrayList;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import jakarta.validation.constraints.*;
 
 import lv.venta.model.Product;
 import lv.venta.service.ICRUDProductService;
@@ -58,16 +61,23 @@ public class ProductCRUDController {
 
 
     @PostMapping("/add")///product/crud/add
-    public String postControllerForProductAdding(Product product, Model model) {
-        try
-        {
-            prodService.createNewProduct(product);
-            return "redirect:/product/crud/all";
+    public String postControllerForProductAdding(@Valid Product product, BindingResult result, Model model) {
+        if(result.hasErrors()){
+            return "add-one-product";
         }
-        catch (Exception e) {
-            model.addAttribute("package", e.getMessage());
-            return "error-page";
+        else {
+            try
+            {
+                prodService.createNewProduct(product);
+                return "redirect:/product/crud/all";
+            }
+            catch (Exception e) {
+                model.addAttribute("package", e.getMessage());
+                return "error-page";
+            }
         }
+
+
     }
 
     @GetMapping("/update/{id}")//localhost:8080/product/crud/update/2

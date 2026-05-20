@@ -61,7 +61,7 @@ public class ProductFilterAndStatsController {
             ArrayList<Product> filtered_product = service.filterByKeyword(keyword);
             model.addAttribute("package", filtered_product);
             return "show-all-products";
-        }   
+        }
         catch(Exception e){
             model.addAttribute("package", e.getMessage());
             return "error-page";

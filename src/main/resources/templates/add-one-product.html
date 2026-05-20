@@ -5,14 +5,19 @@
 
 	<p>Ievadi nosaukumu</p>
 	<input type="text" th:field="*{title}"/>
+	<p th:if="${#fields.hasErrors('title')}"  th:errors="*{title}"></p>
 	<p>Ievadi cenu</p>
 	<input type="text" th:field="*{price}"/>
+	<p th:if="${#fields.hasErrors('price')}"  th:errors="*{price}"></p>
 	<p>Ievadi kategoriju</p>
 	<input type="text" th:field="*{category}"/>
+	<p th:if="${#fields.hasErrors('category')}"  th:errors="*{category}"></p>
 	<p>Ievadi aprakstu</p>
 	<input type="text" th:field="*{description}"/>
+	<p th:if="${#fields.hasErrors('description')}"  th:errors="*{description}"></p>
 	<p>Ievadi daudzumu</p>
 	<input type="text" th:field="*{quantity}"/>
+	<p th:if="${#fields.hasErrors('quantity')}"  th:errors="*{quantity}"></p>
 
 	<button type="submit" >Saglabāt produktu</button>
 </form>

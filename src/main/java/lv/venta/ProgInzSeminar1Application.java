@@ -35,9 +35,9 @@ public class 	ProgInzSeminar1Application {
 				//CrudRepositoriju funkcijas: //https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html
 
 				
-				Product p1 = new Product("Ābols", 0.99f, "Salds un garšīgs", Category.fruit, 10);
-				Product p2 = new Product("Burkāns", 2.84f, "Oranžš", Category.vegetable, 40);
-				Product p3 = new Product("Vīnogas", 4.99f, "Violetas", Category.fruit, 3);
+				Product p1 = new Product("Apple", 0.99f, "Sweet and Tasty", Category.fruit, 10);
+				Product p2 = new Product("Carrot", 2.84f, "Orange", Category.vegetable, 40);
+				Product p3 = new Product("Grape", 4.99f, "Violet", Category.fruit, 3);
 				
 				prodRepo.save(p1);
 				prodRepo.save(p2);
