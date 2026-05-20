@@ -1,11 +1,6 @@
 package lv.venta.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Table(name = "ProductTable")
 @Entity
@@ -23,6 +18,7 @@ public class Product {
 	private String title;
 	
 	@Column(name = "Category")
+	@Enumerated(EnumType.STRING)
 	private Category category;
 	
 	@Column(name = "Description")

@@ -10,7 +10,7 @@ import lv.venta.model.Product;
 import lv.venta.repo.IProductRepo;
 
 @SpringBootApplication
-public class ProgInzSeminar1Application {
+public class 	ProgInzSeminar1Application {
 
     private final SimpleController simpleController;
 
